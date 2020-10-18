@@ -1,0 +1,328 @@
+\documentclass[12pt]{article}
+
+\usepackage[spanish]{babel}
+
+\begin{document}
+\begin{center}
+Mesoscopic modelling of financial markets\\
+\small{S.Cordier, L.Pareschi and C. Piatecki}
+\end{center}
+\section*{La dinámica microscópica}
+\quad Conideramos un conjunto de agentes financieros $i=1,\dots,N$ quienes pueden crear su propio portafolio entre dos alternativas de inversión: una acción y un bono. Definimos por $w_i$ la riqueza del agente $i$ y por $n_i$ el numero de las acciones del agente. Adicionalmente usamos la notacion $S$ para el precio de las accion y $n$ para el numero total de acciones.\\
+\quad La escencia de la dinámica es la eleccion de los portafolios de los agentes. Más precisamente, en cada paso temporal cada agente selecciona que fraccion de riqueza a invertir en bonos y que fraccion en acciones. Indicaremos con $r$ (constante) el interes de los bonos. Los bonos son asumidos a ser activos sin riesgo que obtiene un retorno al final de cada paso temporal. La accion es una activo con riesgo con un retorno total $x$ compuesto por dos elementos: una ganancia (perdida) de capital y la distribucion de dividendos.\\
+\quad Para simplificar la notación, olvidaremos por un momento los efectos de la naturaleza estocastica del proceso, la presencia de os dividendo, etc. Asi, si un agente agente tiene invertido $\gamma_i w_i$ de su riqueza en acciones y $(1-\gamma_i)w_i$ de su riqueza en bonos, y en el siguiente paso temporal en la dinamica él invertirá el nuevo valor de la riqueza
+\begin{equation}
+w_{i}'= (1-\gamma_i)w_i(1+r)+\gamma_i w_i (1+x),\label{ec1}
+\end{equation}
+donde el retorno de a acción es dado por 
+\begin{equation}
+x =\frac{S'-S}{S}
+\end{equation}
+y $S'$ es el nuevo precio de la acción.\\
+\quad Donde tenemos la identidad
+\begin{equation}
+\gamma_i w_i=n_iS_i
+\end{equation}
+podemos también escribir
+\begin{equation}
+w'_i=w_i+w(1+\gamma_i)r+ w_i\gamma_i\left(\frac{S'-S}{S}\right)
+\end{equation}
+\begin{equation}
+= w_i+(w_i-n_iS)r+n_i(S'-S)
+\end{equation}
+Note que, independientemente del numero de acciones del agente en el siguiente tiempo, es solo la variacion de precios del mercado (que es desconocida) que caracteriza la ganancia o perdida del agente en el mercado de acciones en esta etapa.\\
+\quad La dinamica ahora es bacada sobre la eleccion del agente de la nueva fraccion de riqueza que quiere invertir en acciones en la siguiente etapa. Cada inversor $i$ es confrontado con una desicion donde se encuentra en incertidumbre: ¿ Cual es la nueva fraccion optima $\gamma_i'$ de riqueza a invertir en acciones?, Acorde a la teoria estandar de inversion cada inversor es caracerizado por una $ \textit{funcion de utilidad}$ (de su riqueza) $U(w)$ que refleja la preferencia al tomar el riesgo personal. El optimo $\gamma_i'$ es uno que maximiza el valor esperado de $U(w)$.\\
+\quad Diferentes modeos pueden ser usado para esto, por ejemplo, maximizar una función de utilidad de von Neumann-Morgenstern con una adversion constante de riqego del tipo
+\begin{equation}
+U(w)= \frac{w^{1-\alpha}}{1-\alpha}
+\end{equation}
+donde $\alpha$ es el parametro de adversion de riesgo, o la función de utilidad logaritmica
+\begin{equation}
+U(w)=\log{(w)}
+\end{equation}
+Como no conocen el precio de la acción futura $S'$, el inversor estima la siguiente distribución de retorno y encontrar una mezcla de acciones y de bonos que maximize su utilidad esperada $E[U]$. En la práctica, para algún precio hipotetico $S^{h}$, cadainversor encuentra la proporcion optima hipotetica $\gamma_i^{h}(S^h)$ que maximiza su utilidad esperada evaludad en
+\begin{equation}
+w^h(S^h)=(1-\gamma^h_i)w_i'(1+r) +\gamma^h_i(1+x(S^h))
+\end{equation}
+donde $x'(S^h)=(S^h-S')/S'$ y $S'$ es estimada de alguna manera. POr ejemplo en [\footnote{Levy, M.,Levy, H., Solomon, S., \textit{Microscopic simulation of financial markets: From investor behaviour to market phenomena, Academic Press, (2000)}}], la expectativa de los inversores para  $x'$ son basados en la extrapolación de los valores pasados.\\
+\quad Note que, si asumimos que todos los inversores tienen la misma adversión al riesgo $\alpha$, entonce ellos tendrán la misma proporción de inversión en acciones es indiferente de su riqueza, así $\gamma^{h}_i(S^{h})=\gamma^{h}(S^{h})$.\\
+\quad Una vez cada inversor decide sobre su proporcion hipotetica optima de riqueza $\gamma^{h}$ que desea invertir en acciones, uno puedo derivar el numero de acciones $n^{h}_i(S^{h})$ que desea mantener correspondiente a cada precio de acciones hipotetico $S^{h}$. Desde el numero total de acciones en el mercado $n$, es fijo hay un valor valor particular del precio $S'$ para que la suma de $n^{h}_i(S^h)$ igual a $n$. Este valor $S'$ es el nuevo precio de equilibrio del mercado y la opcion optima de la riqueza es $\gamma'_i=\gamma^{h}_i(S')$.\\
+\quad Más precisamente, siguiendo [1], cada agente formula una \textit{ curva demanda}
+\begin{equation}
+n^h_i=n^h_i(S^h)=\frac{\gamma^h(S^h)w^h_i(S^h)}{S^h}
+\end{equation}  
+caracterizando el numero deseado de acciones como una funcion del precio del mercado hipotetico $S^h$. Este numero de accciones es una funcion monotamente decreciente del precio hipotetico $S^h$. Como el numero de acciones
+\begin{equation}
+n= \sum^{N}_{i=1}n_i
+\end{equation}
+es preservado, el nuevo precio del mercado en el siguiente nivel temporal es dado por el así llamada \textit{condición de mercado de conpensación}. Así el nuepor precio $S'$ es el único precio en que la demanda total es igual a la oferta
+\begin{equation}
+\sum^{N}_{i=1}n^h_i(S')=n
+\end{equation} 
+Este será el valor $w'$ en \cite{ec1} y el modeo puede estar avanzando al siguiente nivel temporal. Hacer el modelo más realista, tipicamente una fuente de ruido estocastico, que caracteriza todos los factores causando al inversor desviar de su portafolio personal, es introducido en la proporción de inversión $\gamma_i$ y en el retorno de la acción $x'$ 
+\section*{Modelamiento Cinético}
+\quad Definimos $f = f(w,t)$, $w\in R_{+},t >0$ la distribución de riqueza $w$ que representa la probabilidad para un agente que tiene una riqueza $w$. Asumimos que en el tiempo $t$ el porcentaje de riqueza invertida es de la forma $\gamma{\varepsilon}=\mu(S) \varepsilon$, donde $\varepsilon$ es una variable aleatorio in $[-z,z]$, y $z=min\left\{-\mu(S),1-\mu(S)\right\}$ is distribuido acorde a alguna densidad de probabilidad $\Phi(\mu(S),\varepsilon)$ con promedio cero y varianza $letra^{2}$. Esta densidad de probabilidad caracteriza la etrategia de un agete alrededor de la elección óptima $\mu(S)$. Asumimos $\Phi$ es independiente de la riqueza del agente. Aqui, la curva de demanda optima $\mu(\cdot)$ es asumido a ser una dada función que no aumenta monoticamente del precio $\S\leq 0$ tal que $0< \mu(0)<1$.\\
+\quad Note que dado $f(w,t)$ el actual precio del mercado $S$ satisface la relación oferta demanda
+\begin{equation}
+S=\frac{1}{n}E[\gamma w]
+\end{equation} 
+donde $E[X]$ denota la esectativa matematica de la variabe aleatoria $X$ y $f(w,t)$ ha sido normalizado
+\begin{equation}
+\int^{\infty}_{0}f(w,t)dw = 1
+\end{equation}
+Más precisamente, de $\gamma$ y $w$ son independientes, en el tiempo $t$, El precio $S(t)$ satisface 
+\begin{equation}
+S(t)=\frac{1}{n}E[\gamma] E[w]=\frac{1}{n}\mu(S(t))(w)(t)\label{ec12}
+\end{equation} 
+con \begin{equation}
+w(t){:=} E[w] = \int^{infty}_{0}f(w,t)wdw
+\end{equation}
+sera la riqueza promedio y por construcción,
+\begin{equation}
+\mu(S)=\int\Phi(\mu(S),\varepsilon)\varepsilon d\varepsilon
+\end{equation}
+\quad En la siguiente ronda en el mercado, la nueva riqueza del inversor dependerá son el precio futuro $S'$ y el porcentaje $\gamma$ de riqueza invertida acorde a
+\begin{equation}
+w'(S,\gamma,n)=(1-\gamma)w(1+r)+\gamma w(1+x(S',n)),
+\end{equation}
+donde el retorno esperado del activo es dado por
+\begin{equation}
+x(S',n)=\frac{S'-S+D+n}{S}\label{ec15}
+\end{equation}
+En la relacion de arriba, $D\leq 0$ representa un pago de dividendo constante por la compañia y $n$ es una variable aleatoria distribuida acorde a $\Theta(n)$ con promedio cero y varianza $\sigma^2$, que toma en cuenta fluctuaciones debido a la incertidumbre de precios y dividendos. Asumimos que $n$ toma valores en $[-d,d]$ con $0<d\leq S'+D $ tal que $w'\leq 0$ y así riquezas negativas no son permitidas en el modelo. Note que Ec.(\cite{ec15}) requiere estimar el precio futuro $S'$. que es desconocido.
+La dinámica es entonces determinado por la nueva fracción del agente de riqueza invertida en acciones, $\gamma'(\varepsilon')=\mu(S')+\varepsilon'$, donde $\varepsilon'$ es una variable aleatoria en $[-z',z']$ y 
+$z'= \min \left\{ \mu(S'),1-\mu(S')\right\}$ e distribuido acorde a $\Phi(\mu(S'),\varepsilon')$. Tenemos la relacion oferta - demanda
+\begin{equation}
+S'=\frac{1}{n}E[\gamma'w']
+\end{equation}
+que nos permite escribir para el recio futuro
+\begin{equation}
+S'= \frac{1}{n} E[\gamma']E[w']= \frac{1}{n}\mu(S')E[w']\label{ec17}
+\end{equation}
+ahora
+\begin{equation}
+w'(S',\gamma,n)= w(1+r) + \gamma w (x(S',n)-r)
+\end{equation}
+así
+\begin{eqnarray}
+E[w']= E[w](1+r)+E[\gamma w](E[x(S',n)]-r) \\
+=w(t)(1+r)+\mu (S)w(t)\left(\frac{ S'-S+D}{S}-r\right)
+\end{eqnarray}
+Esto da la identidad
+\begin{equation}
+S'=\frac{1}{n} \mu (S')w(t)\left[(1+r)+\mu(S)\left(\frac{S'-S+D}{S}-r\right) \right]
+\end{equation}
+Usando Ec.\cite{ec12} podemos eliminar la dependenciasobre la riqueza promedio y escribir
+\begin{eqnarray}
+S'=\frac{\mu(S')}{\mu(S)}\left[(1-\mu(S))S(1+r)+\mu(S)(S'+D) \right] \nonumber \\
+= \frac{(1-\mu(S))\mu(S')}{(1-\mu(S'))\mu(S)}(1+r)S+\frac{\mu(S')}{1-\mu(S')}D\label{ec22}
+\end{eqnarray}
+\subsection*{Observación 3.1}
+La ecuacion para el futuro precio deseado algunas observaciones 
+\begin{itemize}
+\item Ec.\cite{ec22} determina implicitamente el futuro valor del precio de la accion. Ponemos
+$$
+g(S)=\frac{1-\mu(S)}{\mu(S)}S
+$$
+Entonces el precio futuro es dado por la ecuación
+$$
+g(S') = g(S)(1+r)+D
+$$
+para un dado $S$. Note que
+$$
+\frac{dg(S)}{dS}=-\frac{d\mu(S)}{dS}\frac{S}{\mu(S)^2}+\frac{1-\mu(S)}{\mu(S)}>0
+$$
+así la funciónes estrictamente creciente con repecto a $S$. Esto garantiza la existencia de una unica solución
+\begin{equation}
+S'=g^{-1}(g(S)(1+r)+D)>0
+\end{equation}
+Por lo tanto, si $r=0$ y $D=0$, la única solución es $S'=S$ y el precio se mantiene inalterado en el tiempo.\\
+Para el retorno promedio de accione, tenemos
+
+\begin{equation}
+x(S')-r=\frac{(\mu(S')-\mu(S))(1+r)}{(1-\mu(S'))\mu(S)}+\frac{\mu(S')D}{S(1-\mu(S'))} \label{ec24}
+\end{equation}
+donde
+\begin{equation}
+X(S')= E[x(S',n)]=\frac{S'-S+D}{S}
+\end{equation}
+Ahora el lado derecho de Ec.(\cite{ec24}) tiene signo no constante de $\mu(S')\leq \mu(S) $. En partícular, el promedio de retornos del mercado es arriba es la taza de bonos $r$ solo si la taza (negativa) de variación de los inversores es arriba de un cierto umbral
+$$
+\frac{\mu(S')-\mu(S)}{\mu(S)\mu(S')}S\leq -\frac{D}{(1+r)}
+$$
+\item En el caso de inversión contante $\mu(\dot)=C$, con $C\in (0,1)$ constante, entonces tenemos $g(S)=(1-C)S/C$ y
+$$
+S'=(1+r)S+\frac{C}{1+C}D,
+$$
+que corresponde a una dinamica creciente de los precios en el interes $r$. Como una consecuencia, el promedio retorno de accione es siempre mas largo que entonces el retorno constante de los bonos
+$$
+x(S')-r=\frac{D}{S(1-C)}\geq 0
+$$
+\quad Por metodos estandares de teoria cinetica [2], la dinámica microscopica de agentes origina la siguiente ecuación cinética lineal para a evolución de la distribución de riqueza
+\begin{equation}
+\frac{\partial f(w,t)}{\partial t} = \int^{d}_{-d}\int^{z}_{-z} \left(\beta(w\rightarrow w) \frac{1}{j(\varepsilon,n,t)}f('w,t)-\beta(w\rightarrow w')f(w,t)\right)d\varepsilon dn
+\end{equation}
+La ecuación de arriba toma en cuenta todas las posibles variaciones que puede ocurrir a la distribución de una dada riqueza $w$. La primera parte de la integral del ado derecho toma en cuenta todas as posibles ganancias de la riqueza de prueba $w$ que viene de la riqueza $'w$ antes de la transacción. La función $\beta('w\rightarrow w)$ da la probabilidad por unidad de tiempo de este proceso.\\
+\quad Así $'w$ es obtenido simplemente por la inversión de la dinámica dada
+\begin{equation}
+'w=\frac{w}{j(\varepsilon,n,t)}, \quad \quad j(\varepsilon,n,t)=1+r+\gamma(\varepsilon)(x(S',n)-r),
+\end{equation} 
+donde el valor $S'$ es dado como el único  punto fijo de Ec.(\cite{ec17}).\\
+\quad La presencia del término $j$ en la integral es necesario en orden de prevenir el nunmero total de agentes 
+\begin{equation}
+\frac{d}{dt} \int^{\infty}_{0} f(w,t)dw=0
+\end{equation}
+La segunda parte de la integral sobre el lado derecho de la Ec.(\cite{26}) es un término negativo que toma en cuenta todas as posibes perdidas de riqueza $w$ como una consecuencia de la dinámica directa Ec.(\cite{ec14}), la taza de este proceso ahora será $\beta(w\rightarrow w')$. En nuestro caso, el kernel $\beta$ toma la forma
+\begin{equation}
+\beta(w\rightarrow w') = \Phi(\mu(S),\varepsilon)\Theta(n)
+\end{equation}
+La función de distribución $\Theta (\mu(S),\varepsilon)$, junto con la función $\mu(\dot)$, caracterizan el comportamiento de los agentes en el mercado (más precisamente, ellos caracterizan la manera de invertir de los agentes invierten su riqueza como una función del precio actua del mercado).
+\subsection*{Observación 3.2} En la derivación de la ecuación cinética, asumimos por simplicidad que la actual curva de demanda $\mu(\dot)$ que da la proporción óptima de inversión es una función de solo del pre3cio. En realidad, la curva de demanda debería cambiar en cada interación y debería asi solo depender del tiempo. En el caso general donde cada agente tiene una estrategia individual que depende de la riqueza, uno debería considerar la dsitribución $f(\gamma,w,t)$ de agentes teniendo una fracción $\gamma$ de su riqueza $w$ invertido en acciones
+\end{itemize}
+\section*{Propiedades de la ecuación cinética}
+Comenzaremos nuestro analisis introduciendo algunas notaciones. Sea $M_0$ el espacio de toda la probabilidad medida en $R_{+}$  y por 
+\begin{equation}
+M_p=\left\{\Psi \in M_0:\int_{R_{+}}|\vartheta|^{P}\Psi(\vartheta)d\vartheta<+\infty,p\geq 0 \right\},
+\end{equation}
+medimos el espacio de toda la probabilidad de Borel de momento finito de $p$, equipada con la topología de a convergencia debil de la medida.\\
+\quad Sea $F_{p}(R_{+}),p>1$ la clase de todas las funciones reales sobre $R_{+}$ tal que $m+\delta=p$, y $g^{(m)}$ denota la m escima derivada de $g$.\\
+\quad Claramente la densidad de probabilidad simetrica $\Theta$ que caracteriza el retorno de acciones que pertenece a $M_p$ para todo $p>0$ de
+$$
+\int^{d}_{-d}|n|^{p}\Theta(n)dn \leq |d|^{p}.
+$$ 
+Además, para simplificar calculos, asumimos que esta densidad es obtenida de una variable aleatoria dada $Y$ con promedio cero y varianza unitaria. Así $\Theta$ de varianza $\sigma^2$ es la densidad de $\sigma Y$. POr esta suposición, podemos facilmente obtener la dependecia sobre $\sigma$ de los momento de $\Theta$. De hecho, para algún $p>2$,
+$$
+\int^{d}_{-d}|n|^{p}\Theta(n)dn=E(|\sigma Y|^P)=\sigma^{p}E(|Y|^{p}).
+$$ 
+\quad Note que la Ec.(\cite{25}) en forma debil toma la forma mas simple
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0} f(w,t)\phi(w)dw = \int^{\infty}_{0}\int^{D}_{-D}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(\phi (w')-\phi(w))d\varepsilon dn dw \label{31}
+\end{equation}
+Para uns solución debil del problema valor inicial para la Ec.(\cite{ec26}) corresponde a la densidad de probabilidad inicial $f_0(w)\in M_{p}, p >1$, nos referiremos a alaguna densidad de probabilidad $f\in C^{1}(R_{+})$, y tal que para todo $\phi \in F_{p}(R_{+})$,
+\begin{equation}
+\lim_{t\rightarrow 0}\int^{\infty}_{0}f(w,t)\phi(w)dw=\int^{\infty}_{0}f_0(w)\phi(w)dw \label{32}
+\end{equation}
+La forma Ec.(\cite{ec31}) es facil de resolver, y es el punto de comienzo para estudiar la evolución de cantidades macroscopicas (momentos). La existencia de una solución débil para Ec.(\cite{25}) puede ser visto facilmente usando los mismos metodos disponibles para la ecuacion lineal de Boltzmann [28].\\
+\quad De Ec.(\cite{ec31}) seguimos la conversavación de nuemro total de inversores si $\phi(w)=1$. La elección $\phi(w)=w$ es de interés partícular dado la evolución temporal de la riqueza promedio que caracteriza el comportamiento de precio. De hecho, la riqueza promedio no es conservada en el modelo que tenemos
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0}f(w,t)wdw=\left(r+\mu(S)\left(\frac{S'-S+D}{S}-r\right)\right)\int^{\infty}_{0}f(w,t)wdw\label{ec33}
+\end{equation}
+Note que desde el signo del lado derecho es no negativo, la riqueza promedio no decrece en el tiempo. En partícular, podemos re escribir la ecuación como
+\begin{equation}
+\frac{d}{dt}w(t)=((1-\mu(S))r+ \mu(S)x(S'))w(t) \label{ec34}
+\end{equation}
+De esto obtenemos la ecuacion del precio
+\begin{equation}
+\frac{d}{dt}S(t)=\frac{\mu(S(t))}{\mu(S(t))-\mu(S(t))S(t)}((1-\mu(S(t)))r+\mu(S(t))x(S'(t)))S(t).
+\end{equation}
+donde $S'$ es dado por Ec.(\cite{ec22}) y
+\begin{equation}
+\dot{\mu}(S)=\frac{d\mu(S)}{dS}\geq 0. 
+\end{equation}
+Ahora de Ec.(\cite{ec24}) se sigue por la monotonicidad de $\mu$ que
+$$
+x(S')\leq M:= r+\frac{D}{S(0)(1-\mu(S(0)))}
+$$
+usando Ec.(\cite{ec34}) tenemos los limites
+\begin{equation}
+w(t)\leq w(0)exp(Mt)\label{ec36}
+\end{equation}
+De Ec.(\cite{12}) obtenemos inmediatamente
+$$
+\frac{S(t)}{\mu(S(t))}\leq \frac{S(0)}{\mu(S(0))}exp(Mt)
+$$
+que da
+\begin{equation}
+S(t)\leq S(0)exp(Mt) \label{ec37}
+\end{equation}
+\subsection*{Observación 4.1}Para una constante $\mu(\cdot)=C,C\in (0,1)$ tenemos la expresión explicita para el crecimiento de la riqueza (y consecuentemente para el precio)
+\begin{equation}
+w(t)=w(0)exp(rt)-(1-exp(rt))\frac{nD}{1-C}\label{ec38}
+\end{equation}
+\quad Analogos bordes para Ec.(\cite{36}) para momentos de alto orden puede ser obtenido en una manera similar. Vamos a considerar el caso de momentos de orden $p\geq2$, que necesitaremos en la secuencia. TOmando $\phi(w)=w^p$, tenemos
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0}w^{p}f(w,t)dw=\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(w'^{p}-w^{p})d\varepsilon dn dw \label{ec39}
+\end{equation}
+Además, podemos escribir
+$$
+w'^{p}=w^{p}+pw^{p-1}(w'-w)+\frac{1}{2}p(p-1)w^{p-2}(w'-w)^{2}
+$$
+donde, para algún $0\leq \theta \leq 1$,
+$$
+w=\theta w' +(1+\theta)w
+$$
+Aquí,
+$$
+\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(w'^{p}-w^{p})d\varepsilon dn dw
+$$
+\begin{eqnarray}
+=\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(pw{p-1}(w'-w)+\frac{1}{2}p(p-1)w^{p-2}(w'-w)^{2})d\varepsilon dn dw \nonumber \\
+=p((1-\mu(S))r+\mu(S)x(S'))\int^{\infty}_{0}w^{p}f(w,t)dw+\frac{1}{2}p(p-1)
+\end{eqnarray}
+$$
+\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)w^{p-2}w^2((1-\gamma)r+\gamma x(S',n))^{2}d\varepsilon dn dw
+$$
+De
+$$
+w^{p-2}=w^{p-2}(1+\theta(1-\gamma)r+\gamma x (S',n)))^{p-2}\leq w^{p-2}(1+r+|x(S',n)|)^{p-2}
+$$
+$$
+\leq C_pw^{p-2}(1+r^{p-2}+|x(S',n)|^{p-2})
+$$
+y
+$$
+((1-\gamma)r+\gamma x(S',n)))^2\leq 2(r^2+x(S',n)^2),
+$$
+tenemos
+$$
+\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z} \Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)w^{p-2}w^{2}((1+\gamma)r+\gamma x(S',n))^2 d\varepsilon dn dw
+$$
+$$
+\leq 2C_p\int^{\infty}_{0}\int^{d}_{-d}\Theta(n)f(w,t)w^{p}(1+r^{p-2}+|x(S',n)|^{p-2})(r^{2}+x(S',n)^2)dn dw
+$$
+de
+\begin{equation}
+\int^{d}_{-d}\Theta (n)|x(S',n)|^pdn\leq \frac{c_p}{S^{p}}((S'-S)^p+D^p+\sigma^pE(|Y|^p)),
+\end{equation}
+finalmente obtenemos los bordes
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0}w^pf(w,t)dw \leq A_p(S)\int^{\infty}_{0}w^{p}f(w,t)dw,
+\end{equation}
+donde 
+$$
+A_p(S)=p((1-\mu(S))r+\mu(S)x(S'))
+$$
+$$
++p(p-1)C_p\left[r^p+(1+r^{p-2})\left(1+\frac{C_2}{S^{2}}((S'-S)^2+D^2+\sigma^2E(|Y|^2)) \right) +r^2\left(1+\frac{C_p-2}{S^{p-2}}((S'-S)^{p-2}+D^{p-2}+\sigma^{p-2}E(|Y|^{p-2})) \right)
++ \left(\frac{C_p}{S^{p}}((S'-S)^p+D^{p}+\sigma^{p}E(|Y|^p))\right) \right]
+$$
+y $C_p,c_p,c_{p-2}$ y $c_2$ son constantes sutibles.\\
+\quad Podemos resumir nuestros resultados en lo que sigue
+\subsection*{Teorema 4.1}
+Sea la desnsiada de probabilidad $f_0\in M_p$, donde $p=2+\delta$ para algún $\delta > 0$. Entonces la riqueza promedio incrementa exponencialmente con el tiempo siguiendo Ec.(\cite{ec36}). Como una consecuencia, si $\mu$ es una función que no incrementa de S
+, el precio no crece mas que exponencialmente como en Ec.(\cite{ec37}). Similarmente, momentos orden altos no incrementan más que exponencialemnte y tenemos el borde Ec.(\cite{ec41})
+\section*{Solución auto-similar y Asimtotica Fokker-Planck}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

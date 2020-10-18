@@ -1,0 +1,80 @@
+\documentclass[a4paper,openright,12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\setcounter{secnumdepth}{3} % para que ponga 1.1.1.1..
+\usepackage{cite} % para contraer referencias
+\usepackage{setspace}
+%\usepackage{srcltx}
+%
+%\setlength{\textwidth}{150mm}
+%\setlength{\textheight}{215mm}
+%\setlength{\oddsidemargin}{25mm}
+%%\setlength{\evensidemargin}{25mm}
+%\setlength{\topmargin}{-40mm}
+\usepackage{vmargin}
+\usepackage{natbib}
+\usepackage{hyperref}
+
+\setpapersize{A4}
+\setmargins{4cm} % margen izquierdo
+{4cm}           % margen superior
+{15cm}          % anchura del texto
+{21.5cm}         % altura del texto
+{12pt}            % altura de los encabezados
+{1cm}      % espacio entre el texto y los encabezados
+{2,5cm}            % altura del pie de página
+{2,5cm}         % espacio entre el texto y el pie de página
+\renewcommand{\baselinestretch}{2}
+\begin{document}
+$\ $
+\footnote{
+Se autoriza la reproducción total o parcial, con fines académicos, por cualquier medio o procedimiento, incluyendo la cita bibliográfica del documento.}
+%\input{portada.sty}
+%\thispagestyle{empty} % para que no se numere esta pagina
+\chapter*{}
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+\setcounter{page}{3}
+\begin{flushright}
+\textit{Dedicado a \\
+mi familia}
+\end{flushright}
+\chapter*{AGRADECIMIENTOS} 
+\addcontentsline{toc}{chapter}{Agradecimientos} 
+!`Muchas gracias a todos y a todas!
+
+\tableofcontents
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de figuras} 
+\listoffigures
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de tablas} 
+\listoftables 
+
+\newpage
+\chapter*{Resumen}\label{cap.resumen} % %\pagenumbering{arabic}
+%\addcontentsline{toc}{Resumen} % si queremos que aparezca en el índice
+\markboth{RESUMEN}{RESUMEN} % encabezado
+\input{Capitulos/cap0.sty}
+	\chapter{Introducción}\label{cap.introduccion}
+\pagenumbering{arabic} % para empezar la numeración con números
+	\input{Capitulos/cap1.sty}
+
+\chapter{Marco Teórico}\label{cuerpodelatesis}
+	\input{Capitulos/cap2.sty}
+
+\chapter{Resultados}\label{capresultados}
+	\input{Capitulos/cap3.sty}
+
+\chapter{Conclusiones}\label{conclusiones}
+	\input{Capitulos/cap4.sty}
+
+
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{unsrt} 
+\bibliography{reftesis}
+\newpage
+\end{document}

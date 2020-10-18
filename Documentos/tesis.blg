@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: tesis.aux
+The style file: unsrt.bst
+Database file #1: reftesis.bib
+Repeated entry---line 218 of file reftesis.bib
+ : @phdthesis{trimborn2017
+ :                        ,
+I'm skipping whatever remains of this entry
+Warning--empty booktitle in beikirch2020
+Warning--empty journal in trimborn
+Warning--empty year in trimborn
+Warning--empty journal in lovric2009
+You've used 24 entries,
+            1791 wiz_defined-function locations,
+            590 strings with 7492 characters,
+and the built_in function-call counts, 5315 in all, are:
+= -- 454
+> -- 271
+< -- 2
++ -- 99
+- -- 75
+* -- 363
+:= -- 865
+add.period$ -- 71
+call.type$ -- 24
+change.case$ -- 23
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 233
+empty$ -- 507
+format.name$ -- 75
+if$ -- 1161
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 24
+newline$ -- 121
+num.names$ -- 24
+pop$ -- 75
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 102
+stack$ -- 0
+substring$ -- 319
+swap$ -- 44
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 4
+while$ -- 49
+width$ -- 26
+write$ -- 249
+(There was 1 error message)

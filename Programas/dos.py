@@ -1,0 +1,1 @@
+/home/mauricio/Escritorio/Tesis/Programas/modelo_LLS_02.py

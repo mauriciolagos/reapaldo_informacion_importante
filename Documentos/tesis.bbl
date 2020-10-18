@@ -1,0 +1,140 @@
+\begin{thebibliography}{10}
+
+\bibitem{Levy1994}
+Moshe Levy, Haim Levy, and Sorin Solomon.
+\newblock A microscopic model of the stock market: cycles, booms, and crashes.
+\newblock {\em Economics Letters}, 45(1):103--111, 1994.
+
+\bibitem{Levy1995}
+Moshe Levy, Haim Levy, and Sorin Solomon.
+\newblock Microscopic simulation of the stock market: the effect of microscopic
+  diversity.
+\newblock {\em Journal de Physique I}, 5(8):1087--1107, 1995.
+
+\bibitem{Levy1996a}
+Moshe Levy, Nathan Persky, and Sorin Solomon.
+\newblock The complex dynamics of a simple stock market model.
+\newblock {\em International Journal of High Speed Computing}, 8(01):93--113,
+  1996.
+
+\bibitem{Levy1996b}
+Moshe Levy, Sorin Solomon, and Givat Ram.
+\newblock Dynamical explanation for the emergence of power law in a stock
+  market model.
+\newblock {\em International Journal of Modern Physics C}, 7(01):65--72, 1996.
+
+\bibitem{levy1997}
+Moshe Levy and Solomon Sorin.
+\newblock Dynamical explanation for the emergence of power law.
+\newblock In {\em lesearch Workshop}, page 9746, 1997.
+
+\bibitem{Samanidou2007}
+E.~Samanidou, E.~Zschischang, D.~Stauffer, and T.~Lux.
+\newblock Agent-based models of financial markets, 2007.
+
+\bibitem{Zschischang2001}
+Elmar Zschischang and Thomas Lux.
+\newblock Some new results on the levy, levy and solomon microscopic stock
+  market model.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  291(1-4):563--573, 2001.
+
+\bibitem{beikirch2018}
+Maximilian Beikirch, Simon Cramer, Martin Frank, Philipp Otte, Emma Pabich, and
+  Torsten Trimborn.
+\newblock Simulation of stylized facts in agent-based computational economic
+  market models.
+\newblock {\em arXiv preprint arXiv:1812.02726}, 2018.
+
+\bibitem{shatner2000}
+M~Shatner, L~Muchnik, M~Leshno, and Sorin Solomon.
+\newblock A continuous time asynchronous model of the stock market; beyond the
+  lls model.
+\newblock {\em arXiv preprint cond-mat/0005430}, 2000.
+
+\bibitem{solomon2000}
+Sorin Solomon and Moshe Levy.
+\newblock Market ecology, pareto wealth distribution and leptokurtic returns in
+  microscopic simulation of the lls stock market model.
+\newblock {\em arXiv preprint cond-mat/0005416}, 2000.
+
+\bibitem{li2007}
+Youwei Li, Bas Donkers, and Bertrand Melenberg.
+\newblock The econometric analysis of agent-based models in finance: an
+  application.
+\newblock In {\em International Conference on Intelligent Data Engineering and
+  Automated Learning}, pages 1081--1091. Springer, 2007.
+
+\bibitem{cordier2009}
+Stephane Cordier, Lorenzo Pareschi, and Cyrille Piatecki.
+\newblock Mesoscopic modelling of financial markets.
+\newblock {\em Journal of Statistical Physics}, 134(1):161--184, 2009.
+
+\bibitem{slanina2013}
+Frantisek Slanina.
+\newblock {\em Essentials of econophysics modelling}.
+\newblock OUP Oxford, 2013.
+
+\bibitem{chen2012}
+Shu-Heng Chen, Chia-Ling Chang, and Ye-Rong Du.
+\newblock Agent-based economic models and econometrics.
+\newblock {\em The Knowledge Engineering Review}, 27(2):187--219, 2012.
+
+\bibitem{beikirch2019}
+Maximilian Beikirch, Simon Cramer, Martin Frank, Philipp Otte, Emma Pabich, and
+  Torsten Trimborn.
+\newblock Robust mathematical formulation and implementation of agent-based
+  computational economic market models.
+\newblock {\em arXiv preprint arXiv:1904.04951}, 2019.
+
+\bibitem{beikirch2020}
+Maximilian Beikirch and Torsten Trimborn.
+\newblock Novel insights in the levy-levy-solomon agent-based economic market
+  model.
+\newblock 2020.
+
+\bibitem{trimborn}
+Torsten Trimborn and Martin Frank.
+\newblock Kinetic and mean-field modeling of financial markets.
+
+\bibitem{blok2000}
+Hendrik~J Blok.
+\newblock On the nature of the stock market: Simulations and experiments.
+\newblock {\em arXiv preprint cond-mat/0010211}, 2000.
+
+\bibitem{lovric2009}
+Milan Lovric, Rui~Jorge Almeida, Uzay Kaymak, and Jaap Spronk.
+\newblock Modeling investor optimism with fuzzy connectives.
+\newblock 2009.
+
+\bibitem{brianzoni2012}
+Serena Brianzoni, Cristiana Mammana, and Elisabetta Michetti.
+\newblock Wealth distribution in an asset pricing model: the role of the
+  switching mechanism.
+\newblock {\em Applied Mathematical Sciences}, 6(9-12):423--442, 2012.
+
+\bibitem{bertella2014}
+Mario~A Bertella, Felipe~R Pires, Ling Feng, and Harry~Eugene Stanley.
+\newblock Confidence and the stock market: An agent-based approach.
+\newblock {\em PloS one}, 9(1):e83488, 2014.
+
+\bibitem{zou2017}
+Gaofeng Zou, Qiyuan Cheng, Zhenwei Lv, John Edmunds, and Xiaopeng Zhai.
+\newblock Investor sentiment and ipos anomalies: An agent-based computational
+  finance.
+\newblock {\em EURASIA Journal of Mathematics, Science and Technology
+  Education}, 13(12):7707--7721, 2017.
+
+\bibitem{trimborn2018}
+Torsten Trimborn, Martin Frank, and Stephan Martin.
+\newblock Mean field limit of a behavioral financial market model.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  505:613--631, 2018.
+
+\bibitem{trimborn2017}
+Torsten Trimborn, Lorenzo Pareschi, and Martin Frank.
+\newblock Portfolio optimization and model predictive control: A kinetic
+  approach.
+\newblock {\em arXiv preprint arXiv:1711.03291}, 2017.
+
+\end{thebibliography}

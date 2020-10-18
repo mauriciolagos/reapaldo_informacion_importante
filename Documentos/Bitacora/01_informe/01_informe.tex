@@ -1,0 +1,40 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[spanish]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage[latin2]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{titling}
+\date{\today}
+\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\fancyhf{}
+%\lhead[\leftmark]{Nombre Autor}
+%\rhead[Nombre Autor]{\rightmark}
+%\lfoot[\thepage]{}
+%\rfoot[\leftmark]{\thepage}
+%\lfoot{\hline}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\tikzstyle{rec} = [rectangle, rounded corners, text centered, draw=black]
+\tikzstyle{arrow} =[thick,->,>=stealth]
+\tikzstyle{line} = [draw, -latex']
+
+\begin{document}
+\begin{titlepage}
+	\input{01_portada.sty}
+\end{titlepage}
+\section*{Introducción}\label{Introduccion}
+	\input{01_intro.sty}
+\section*{Marco Teorico}\label{Marco Teorico}
+	\input{01_marco.sty}
+\section*{Implementación}\label{Implementacion}
+	\input{01_imple.sty}
+\section*{Resultados}\label{Resultados}
+	\input{01_resultados.sty}
+\section*{Conclusión}\label{Conclusión}
+\bibliographystyle{unsrt} 
+	\bibliography{biblio_00.bib}
+\end{document}

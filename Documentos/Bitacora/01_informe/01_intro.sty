@@ -1,0 +1,34 @@
+\subsection*{Presentación tema y obejticos del informe}
+\quad En este informe se presenta el primer avance del curso actual (Tesis II). Se utilizará el modelo basado en agentes propuesto por Levy, Levy y Solomon \cite{Levy1994} para describir el mercado financiero, en el modelo se que describen un conjunto (ensemble) de agentes financieros interactuando con un simple obejtivo de maximizar su utilidad esperada en una simple dinámica de oferta y demananda .\\ 
+\quad El principal objetivo de este informe, es presentar el modelo del cual se pretende realizar un trabajo más exhaustivo y complejo. Y se entrega los primeros resultados obtenidos en la implemantación del modelo base en Python 3, y la similitud  y diferencias con los datos obtenidos en la primera referencia literaria \cite{Levy1994}.
+\subsection*{Describir el caso}
+\quad El modelo presetado en \cite{Levy1994} consiste en un conjunto de $i$ de agentes financieros, interactuando de una mercado financiero, con el objetivo de maximizar su utilidad esperada.\\
+\quad En cada paso de tiempo $t$, cada inversor, $i$  debe dividir su riqueza $w_i(t)$ entre activos con riego (acciones) y activos seguros (bonos). Mediante un factor de inversion $x(i)$ el cual podrá variar, permitiendo que el modelo cambie; desde un modelo donde todos los individuos eligen de la misma forma (versión homogenea) a diferenciarse entre ellos en la la forma de elegir cuantas acciones podran comprar ( versión heterogenea), haciendo que el modelo sea mucho mas realista.
+\subsection*{Explicar el problema estudiado}
+\quad Se presentará los resultados del modelo base que se logro implementar. El modelo parte siendo homogeneo y continua hacia la heterogeneidad aumentando levemente el valor de la aletoridad.
+\subsection*{Explicar la metodologia}
+\quad Se implementará el modelo basado de agentes en Pycharm, que usa librerias Python 3.8, El modelo implementado se puede resumir en Tab. [\ref{Diagrama}], las condiciones básicas son sacadas directametne de \cite{Levy1994}
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[node distance = 1.3cm,auto]
+		\node (eleccion) [rec] {Elección de};
+		\node (opt) [rec, below of=eleccion] {Optimización};
+		\node (ruido) [rec, below of=opt] {Agregar ruido a la elección};
+		\node (cod) [rec, below of=ruido] {Calcular el Precio};
+		\node (historial) [rec, below of= cod] {Actualizacion del Historial};
+		\node (actualizar) [rec, below of= historial] {Distribución de intereses y dividendos};
+		\node (fin) [rec, below of= actualizar] {Termino tiempo t};
+		\draw [line] (eleccion) -- (opt);
+		\draw [arrow] (opt) -- (ruido);
+		\draw [arrow] (ruido) -- (cod);
+		\draw [arrow] (cod) -- (historial);
+		\draw [arrow] (historial) -- (actualizar);
+		\draw [arrow] (actualizar) -- (fin);
+%		\draw [line] (fin) |- (eleccion);
+%		\path [line] (fin) -| (eleccion);
+	\end{tikzpicture}	
+	\caption{Diagrama de flujo de la dinámica del programa}
+	\label{Diagrama}
+\end{figure}

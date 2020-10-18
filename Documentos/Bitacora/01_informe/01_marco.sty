@@ -1,0 +1,52 @@
+\subsection*{Física y Economía}
+
+\subsection*{Racionalidad limitada}
+
+
+\subsection*{Modelo Levy-Levy-Solomon}\label{mlls}
+\quad El modelo propuesto por Levy, Levy y Solomon \cite{Levy1994} en 1994 consiste en un
+ ensemble de agentes financieros $i$ que intereactuan en un mercado financiero y tienen dos opciones de invertir su riqueza total $w(i)$; un activo sin riesgo (\textbf{bonos}) y una activo con riesgo (\textbf{acción}).\\
+\quad Al final de cada periodo de transacción el rendimiento de los bonos se retribuido von un retorno $r$ constante que se actualiza cada año. Además, las acciones tienen un dividendo denotado por $D$.\\
+\quad Para poder elegir la opcion de inversión $x(i)$, cada agente recurre a los últimos $k$ retornos del mercado $H(j)$que recuerda para elegir la mejor ocpión para poder maximizar su riqueza. Los inversores creen que cada uno de estos $H(j)$ tiene una propabilidad de reaparecer de $1/k$.\\
+\quad Entonces, en un comienzo cada todos los inversores cuentan con la misma riqueza $w$.\dots\\
+\quad Al comienzo de $t$, el agente elige un precio hipotetico $P_h$ del historial de los retornos, con esto es posible calcular una riqueza hipotetica
+\begin{equation}
+	w_h(i)= w_0(i)+N_0(i) (P_h-P_0)\label{wh}
+\end{equation}
+donde $N_0(i)$ son las acciones que el agente $i$ le son entregadas al inicio de la simulación. Con $P_h$ y $w_h$ es posible calcular la cantidad de acciones a invertir $x(i)$ maximizando la utilidad esperada,
+\begin{equation}
+	EU[x(i)]=\frac{1}{k}\sum^{k}_{j=1}\log[(1-x(i))w_h(i)(1+r) + x(i)w_h(i)(1+H(j))]\label{mue}
+\end{equation}
+al obtener el valor $x(i)$, que es igual para todos en el mercado, se le agrega un factor de ruido que hace que cada elecion difiera entre cada uno de los agentes
+\begin{equation}
+	\tilde{x}(i)= x(i)+\varepsilon(i) \label{ruido}
+\end{equation}
+Ahora se calcula, la cantidad de acciones que cada uno de los inversores podrá mantener,
+\begin{equation}
+	N_h(i)=\frac{x(i)w_h(i)}{P_h}\label{nh}
+\end{equation} 
+esto creará la curva de demanda personal de cada agentes. Ahora, para obtener el precio en el actual paso temporal $t$, se utiliza la condicion de mercado ("\textit{clearence market}"). Al sumar todas las curvas de demandas, numero de acciones, se obtiene las acciones totales del mercado, pero este número es fijo $N_A$
+\begin{equation}
+	N_A=\sum^{N}_{i=1}N_h(i)\label{ccm}
+\end{equation}
+y el precio se calcula
+\begin{equation}
+	P(t) = {\sum(\tilde{x}(i)w_h(i))}{N_A}
+\end{equation}
+Con esto la riqueza de cada inversor cambia
+\begin{equation}
+	w_1(i)= w_0(i)+N_0(P_1-P_0)
+\end{equation}
+y el número de acciones es
+\begin{equation}
+	N(i)=\frac{X_i(i)W(i)}{P(t)}\label{aciones}
+\end{equation}
+con esto ahora, pasamos al etapa de resdistribución de dividendos e intereses
+\begin{equation}
+	w_1(i) = w_1(i) + (1-\tilde{x}(i))w_1(i)(1+r) + \tilde{x}(i)w_1(1)(1+d)
+\end{equation}
+Por último el nuevo precio $P(t)$ genera un nuevo retorno 
+\begin{equation}
+	H_n = \frac{P_t-P_{t-1}+d}{P_{t-1}}
+\end{equation} 
+y este valor se ingresa al historial elimimando el mas antiguo de los valores. Con esto se termina una ronda de la simulación. 

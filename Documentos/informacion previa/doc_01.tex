@@ -1,0 +1,475 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{cite}
+
+\begin{document}
+\begin{center}
+\textbf{A microscopic model of the stock market}\citep{Levy1994}
+\end{center}
+\section{El modelo}
+\quad Consiste en un mercado con dos opciones de inversión: acciones  y bonos. el bono es una acción sin riesgo y las acciones si tienen riesgo.\\
+\quad Los bonos reciben un retorno al final de cada período, denotado por $r$. \\
+\quad las distribución de los precios es empleada para estimar los futuros precios. Por esta razón son guardados los últimos $k$ retorno del mercado. Esto es llamado historial $H(1),H(2),\dots ,H(j)$, $j = 1,\dots ,k$. Y en el modelo los elementos del historial $H(j)$ tienen una probabilidad de $1/k$ de aparecer en el próximo período.\\
+\quad Al comienzo del modelo todos los inversores tienen la misma función de utilidad, $U(w)=\log(w)$ con $w$ la riqueza. Cada inversor decide cuantas acciones desea mantener a un cierto precio mediante un esquema de maximización de utilidad. Suponga un inversor $i$ mantiene $N_0(i)$ acciones en el precio $P_0$ por acción y tiene una riqueza de $w_0(i)$. Además supone que cada inversor tienen alguna historia inicial, $H(0)$, que consiste de un conjunto de $k$ números. Al considerar un precio hipotético $P_h$, la riqueza del $i^{th}$ inversor es
+\begin{equation}
+w_h(i) = w_0(i) + N_0(i)(P_h+P_0) 
+\end{equation}
+Al tener el precio $P_h$ y la $w_h$, el inversor puede elegir la proporción de inversión $x(i)$ a invertir en activos con riego, donde $x(i)$ maximiza la utilidad esperada dada por 
+\begin{equation}
+EU[x(i)] = \frac{1}{k} \sum^{k}_{j=1} \log[(1-x(i))w_h(i)(1+r)+x(i)w_h(i)(1+H_j)]
+\end{equation}
+donde la primera parte del paréntesis es la contribución de los bonos a la riqueza y el segundo término es la contribución de las acciones.\\
+\quad La proporción de inversión en la etapa 1, $x_1(i)$, es una función de la historia de los retornes sobre el mercado y los retornos sin riesgos.\\
+\quad El precio del mercado y la riqueza de los inversores son determinados simultaneamente. La proporción de inversión en los activos riesgosos, $x_1(i)$, determina el número de acciones, $N_h(i)$, el inversor desea mantener al precio $P_h$:
+\begin{equation}
+N_h(i) = \frac{x_1w_h(i)}{P_h}
+\end{equation} 
+\quad El número de acciones que el inversor $i$ desea mantener como una función del precio de la acción es su curva de demanda personal. Sumando las demandas de todos los inversores nos da la curva de demanda agregada. desde el número total de acciones en el mercado, denotada por $N$, es fija, la curva de demanda colectiva da el nuevo precio de las acciones $P_h$.\\
+\quad Después de la primera transacción, la riqueza de cada inversor ha cambiado por $w_{0+}$:
+\begin{equation}
+w_{0+}(i) = w_0(i) +N_0(i)(P_1-P_0)
+\end{equation} 
+el sub indice $+$ indica n instante después de la transacción.\\
+\quad El número de acciones mantenida por el inversor $i$ después de la transacción es
+\begin{equation}
+N_1(i)=\frac{x_1(i)w_{0+}}{P_1}=\frac{x_1(i)[w_0(i) +N_0(i)(P_1-P_0)]}{P_1}
+\end{equation} 
+\quad Ahora un periodo sin transacción sigue: al final de este periodo, dividendos e intereses son recibidos.\\
+\quad EL nuevo precio, $P_1$, agrega un nuevo elemento al historial del mercado, el retorno mas reciente será
+\begin{equation}
+H(11) = \frac{P_1-P_0+D}{P_0}
+\end{equation}
+Luego se agrega el nuevo historial $H(11)$ y se elimina el primer historial $H(1)$.\\
+\quad El modelo descrito es determinista. En situaciones más reales, inversores son influenciados por factores que congelan la maximización de utilidad. Tomando en cuenta los factores psicológicos desconocidos y otras diferencias entre lo inversores se le agrega una variable aleatoria a la proporción de inversión. Para ser más especifico, reemplazamos $x(i)$ con $x'$ cuando
+\begin{equation}
+x'_i = x(i) + \epsilon(i)
+\end{equation}
+donde $\epsilon$ es una variable aleatoria con distribución normal con desviación standar $\sigma$. 
+\section{Datos y resultados}
+\quad En las simulaciones descritas en este artículo, elegimos el periodo de tiempo a ser un año, con interes anual de un $0,1\%$ (o $10\%$). El historial '0' consiste de 10 observaciones con un promedio de $0,1001$ y un varianza de $0,024$. COne stos parametros, la proporcion de inversores con activos riesgozos en la primera ronda es alrededor del $50\%$.\\
+\quad El numero de inversores es asumido a ser $100$ y el numero de acciones en circulación $10.000$. La riqueza inicial de cada inversor es $\$ 1000$. El precio inicial de las acciones es $\$4.40$ y el dividendo es $\$ 0.3$ por acción, por lo tanto, la rentabilidad de los dividendos es $6.81\%$.\\
+\quad Deberiamos enfatizar que nuestros resultados son generales y que no hubi refinamiento fino de los parametros. Las condiciones iniciales no afentan los razgos pricipales de la dinamica. Las condiciones iniclaes, dictan si tenemos primero un boom y luego una crash o de la otra manera a la siguiente ronda.\\
+\quad Nuestros resultados son mostrados en la Figs.1-5. Para entender estos resultados, primero examinamos el caso determinista en que $\sigma$ es muy cercano a cero (figura 1). Vemos que el precio del mercado sube bruscamente y luego crece a tasas  exponenciales constantes. Primero nos concertamos en las subidas.La tasa de rendimiento en el mercado del primer comercio es relativamente alta bruscas. Esto produce una histribucion Historia 1 que es mejor que Historia 0, cuando mejor significa que los inversores están dispuestos a aumentar su proporción de inversión en capital. Los cambios en las proporciones de inversión, especialmente cerca de la proporción máxima de inversión permitida, causan cambios dramáticos (discontinuidad del mercado) en el precio de las acciones.\\
+\quad Después de este fuerte aumento, el precio de las acciones El historial de rentabilidad se vuelve muy atractivo, y las proporciones de inversión en el activo de riesgo se fijan al máximo. Se puede demostrar que bajo la condición de proporciones fijas de inversión y temperatura cero (sin ruido), la tasa de rendimiento se convierte en
+$$
+H=\frac{P_t-P_{t-1}+D}{P_{t-1}}=R+\frac{D}{P_t}\left(\frac{1}{1-X}\right)
+$$
+\quad Vemos eso como $P_t\rightarrow \infty$, $H\rightarrow R$. Esto ecpplic la pendiente constante (ver Fig. 1) de la subida exponencial por que:
+$$
+\frac{P_t}{P_{t-1}}-1\approx \frac{P_{t}-P_{t-1}+D}{P_{t-1}}\rightarrow R,
+$$
+cuando $P_{t-1}$ es largo.\\
+\quad También aprendemos de este resultado que la Historia se vuelve cada vez más homogénea y más y más cerca de R, la tasa de interés fija. Debido a que $H$ llega a R desde arriba en el límite como $P\rightarrow \infty$, el stock sigue siendo ligeramente preferible al enlace en todo momento. Sin embargo, esta situación es muy inestable. La inestabilidad es fácil de entender: la historia de los retornos es solo ligeramente preferible al bono, la fluctuación más pequeña en el arroz puede cambiar las tornas y hacer que el bono sea preferible. Debido a que la variación en las Historias es muy pequeña (todos los rendimientos están cerca de R), un pequeño cambio en una de las historias provoca un cambio dramático en las proporciones de la inversión. A medida que las proporciones de inversión disminuyen, el precio se avalancha. Esto es lo contrario del fuerte aumento que vimos cuando crecieron las proporciones de inversión en el activo de riesgo.\\
+\quad Constuirms nuestro argumente sobre unas pequeñas fluctuaciones de precios, ¿ Pero cual podría ser la fuente de tales fluctuaciones? Es la temperatura o indeterminismo del mercado. Es suficiente tener pequeñas grandes desviaciones para que el comportamiento determinista para desencadenar el crash. Esto es exactamente que sucede cunado 'encendemos el calor', ver Fig.2. Puede ser visto que la subida exponencial del mercado precede la crash no es como suave antes. El pequeño cambio de temperatura da lugar a pequeñas fluctuaciones en el precio. Una de estas fluctuaciones es los suficiente larga para causar un crash. El precio de la acción llega al fondo. Cuando el precio es mejor que el dividendo fijo. Cuando el precio es tan bajo, el dividendo fijo asegura que los rendimientos de las acciones serán relativamente altos. Después de unos pocos períodos, hay suficientes retornos altos en la Historia para hacer de la acción una inversión atractiva nuevamente; Las proporciones de inversión y el ciclo comienza de nuevo.\\
+\quad ¿ Como la dinámica es afectada por las condiciones iniciales?¿ Quizás los crashes y los cycles aparecen solo cuando el precio comienza a subir? En la Fig. 3 se puede ver una ejecución similar con la excepción de que el precio inicial se estableció en (). Debido a que el precio inicial es más alto, la contribución de D al rendimiento es más baja y la Historia 1 es menos atractiva que la Historia 0. Esto lleva a un colapso al principio, pero de lo contrario las dinámicas son las mismas, simplemente cambiaron.\\
+\quad Hasta ahora hemos 'encendido el calor' solo un poco. Esto no es realista ya que los inversores difieren en su comportamiento. ¿Qué pasa si realmente encendemos el calor? En las Figs. 4 y 5 podemos ver lo que sucede. Las condiciones iniciales son las mismas que en la Fig.2. La temperatura agrega el elemento aleatorio a la ejecución determinista y el efecto de 'difuminar' los ciclos, pero debajo del ruido todavía se puede ver el comportamiento cíclico. A medida que aumenta la temperatura, el fuerte aumento y () se vuelve más suave. En $\sigma = 0.2$ los resultados se asemejan a los patrones del mercado de valores real (compárense las figuras 5 y 6). A primera vista, el precio parece aleatorio, pero una mirada más cercana revela los rastros de cycles. En la Fig. 6 entendemos de dónde provienen estos rastros. Quizás ahora podamos comenzar a comprender mejor la realidad
+\section*{Resumen}
+\quad A menudo se escuchan dos puntos de vista en los medios financieros, ambos consistentes con nuestros resultados. La primera vista tiene que ver con la radio del dividendo al precio como indicador del estado del mercado. Los inversores profesionales creen que cuando el rendimiento de dividendos es relativamente bajo, es una señal de un mercado bajista y es de esperar un crash. Lo contrario ocurre si el rendimiento de dividendos es alto. Esto es exactamente lo que hemos encontrado en nuestras simulaciones.\\
+\quad Otra creencia común es que el \textit{comercio de programas} tiene la culpa de la crash 1987 . Cuando muchos inversores siguen la misma estrategia de inversión, es más probable un crash. Cuando las computadoras, en lugar de los seres humanos, toman la decisión de comprar o vender acciones, los pedidos son más homogéneos. De hecho, obtuvimos crashes y boom cuando asumimos decisiones homogéneas. Sin embargo, una vez que 'encendimos el calor' y creamos una toma de decisiones heterogénea, los cycles se volvieron más suaves y los crashes mucho más pequeños. Cuanto mayor es la temperatura, menor es la probabilidad de un crash. \\
+\quad Es alentador descubrir fenómenos tan ricos que surgen de un modelo tan simple. Es aún más alentador que estos fenómenos parezcan encajar tan bien con la realidad.
+
+\newpage
+\begin{center}
+\citep{Samanidou2007}
+\end{center}
+\section*{Un temprano enfoque de econofisica: Levy-Levy-Solomon}
+\subsection*{The model Set-up}
+EL modelo contiene un ensamble de especuladores interactuando cuyo comportamiento es derivado de una bastante tradicional maximización de utilidad. En el comienzo de cada periodo cada inversor $i$ necesita dividir si riqueza entera $W(t)$ en acciones y bonos. Con $X(i)$ denotando la participación de acciones en el portafolio de inversor $i$, su riqueza puee ser descompuesta como sigue
+\begin{equation}
+W_{t+1} = \overbrace{X(i)W_{t}(i)}^{\textrm{suma de acciones}} + \overbrace{(1-X(i))W_t(i)}^{\textrm{suma de bonos}}
+\end{equation}
+con limites super impuestos $0.01<X(i)<0.99$\\
+
+\quad Adicionalmente, el modelo asume que el numero de inversores $n$ como el numero de acciones $N_A$ son fijos. Además una función de identidad de utilidad $U(W_{t+1})$, inversores al comienzo también poseen la misma riqueza y la misma cantidad de acciones. Mientras el bono, es asimod a no tener riesgo, gana un taza de interés fijo $r$, los retornos del mercado $H_t$ es compuesto de dos componentes. Sobre un lado, las ganancias o pérdidas de capital pueden ser el resultado de variaciones de precios $p_t$. Por otro lado, el accionista recibe un pago de dividendo $D_t$ diario o mensual que crece por una taza conztante en el tiempo:
+\begin{equation}
+H_t=\frac{p_t-p_{t-1}+D_t}{p_{t-1}}
+\end{equation} 
+\quad En el modelo base, la preferencias de los inversores son dadas por una función de utilidad logaritmica $U(W_{t+1})=\ln{W_{t+1}}$. Esta función cumple la caracteristica usula de una utilidad marginal que disminuye positivamente. La consecuencia es una adversion al riesgo que disminuye absolutamente, asi que la cantidad de dinero invertido en el aumento de acciones con la riqueza de un inversor. La asi llamada, 'adversion relativa al riesgo' es constante y la proporción óptima invertida en acciones, por lo tanto, es independiente de la riqueza. Las acciones del mercado permanecen constante.\\
+\quad Inversores son asumidos de forma que su su expectativa de futuros retornos en la base a su observaciones recientes. su capacidad de memoria contiene los últimos $k$ retornos totales de stock $H_t$. Todos lo inversores con el mismo largo de memoria $k$ forman un grupo de inversión $G$. Ellos esperan que los retornos en cuestion reaparezcan en el siguiente periodo con un probabilidad $1/k$. La correspodiente función de utilidad esperada $EU(X_{G}(i))$ tiene que ser maximizado con respecto a la accion del ercado $X_G$
+\begin{equation}
+EU = \frac{1}{k}\left[ \sum^{t-k+1}_{j=t}\ln[(1-X_{G}(i))W_t(i)(1+r)+X_GW_t(i)(1+H_j)]\right]
+\end{equation}
+\begin{equation}
+f(X_G(i))=\frac{\partial EU(X_G(i))}{\partial X_G(i)}= \sum^{t-k+1}_{j=t}\frac{1}{X_G(i)+\frac{1+r}{H_j-r}}=0
+\end{equation}
+\quad COmo en muchos modelos, ni ventas cortas ode acciones ni ventas financieras por creditos son permitidas para los agantes, asi que el espacio de soluciones admisibles es restringida a una accion de mercado en el intervalo [0,1]. Levy, Levy, Solomon, además, impone fracciones minimas y maximas de acciones igual a $0.01$ y $0.99$ en casos donde la solución óptima del problema de maximización debería implicar un numero bajo (alto). Nosotros, por lo tanto obtenemos soluciones internar y externas para $X_G(i)$ que se representan en Table (\ref{t1}).
+\begin{center}
+Tabla \ref{t1}: Soluciones internas y externas\\
+\begin{tabular}{ccc}
+\hline
+f(0)&f(1)& $X_G(i)$\\
+\hline
+$<$0&-&0.01\\
+\hline
+$>$0&$<$0&0.01 $< X(i) <$ 0.99\\
+\hline
+$>$0&$>$0&0.99
+%\hline	 
+%\caption{Soluciones internas y externas}
+\end{tabular}
+\label{t1}
+\end{center}
+\quad la accion optima de acciones es calculada para un grupo de inversores $X_G(i)$, un numero aleatorio distribuido normalmente $\varepsilon_i$ es agregado al resultado para derivar cada demanda u oferta del inversor individual. A partir de la agregación de las funciones de demanda estocástica del comerciante, el nuevo precio puede calcularse como un precio de equilibrio. Una vez eliminado el retorno total 'más viejo' de la memoria de los inversores y agregada la 'nueva' entrada cuando finaliza el proceso de simulación para el período t.  
+\subsection*{Resultados previos}
+\quad
+\newpage
+\begin{center}
+Mesoscopic modelling of financial markets\\
+S.Cordier, L.Pareschi and C. Piatecki
+\citep{cordier2009}
+\end{center}
+\section*{La dinámica microscópica}
+\quad Conideramos un conjunto de agentes financieros $i=1,\dots,N$ quienes pueden crear su propio portafolio entre dos alternativas de inversión: una acción y un bono. Definimos por $w_i$ la riqueza del agente $i$ y por $n_i$ el numero de las acciones del agente. Adicionalmente usamos la notacion $S$ para el precio de las accion y $n$ para el numero total de acciones.\\
+\quad La escencia de la dinámica es la eleccion de los portafolios de los agentes. Más precisamente, en cada paso temporal cada agente selecciona que fraccion de riqueza a invertir en bonos y que fraccion en acciones. Indicaremos con $r$ (constante) el interes de los bonos. Los bonos son asumidos a ser activos sin riesgo que obtiene un retorno al final de cada paso temporal. La accion es una activo con riesgo con un retorno total $x$ compuesto por dos elementos: una ganancia (perdida) de capital y la distribucion de dividendos.\\
+\quad Para simplificar la notación, olvidaremos por un momento los efectos de la naturaleza estocastica del proceso, la presencia de os dividendo, etc. Asi, si un agente agente tiene invertido $\gamma_i w_i$ de su riqueza en acciones y $(1-\gamma_i)w_i$ de su riqueza en bonos, y en el siguiente paso temporal en la dinamica él invertirá el nuevo valor de la riqueza
+\begin{equation}
+w_{i}'= (1-\gamma_i)w_i(1+r)+\gamma_i w_i (1+x),\label{ec1}
+\end{equation}
+donde el retorno de a acción es dado por 
+\begin{equation}
+x =\frac{S'-S}{S}
+\end{equation}
+y $S'$ es el nuevo precio de la acción.\\
+\quad Donde tenemos la identidad
+\begin{equation}
+\gamma_i w_i=n_iS_i
+\end{equation}
+podemos también escribir
+\begin{equation}
+w'_i=w_i+w(1+\gamma_i)r+ w_i\gamma_i\left(\frac{S'-S}{S}\right)
+\end{equation}
+\begin{equation}
+= w_i+(w_i-n_iS)r+n_i(S'-S)
+\end{equation}
+Note que, independientemente del numero de acciones del agente en el siguiente tiempo, es solo la variacion de precios del mercado (que es desconocida) que caracteriza la ganancia o perdida del agente en el mercado de acciones en esta etapa.\\
+\quad La dinamica ahora es bacada sobre la eleccion del agente de la nueva fraccion de riqueza que quiere invertir en acciones en la siguiente etapa. Cada inversor $i$ es confrontado con una desicion donde se encuentra en incertidumbre: ¿ Cual es la nueva fraccion optima $\gamma_i'$ de riqueza a invertir en acciones?, Acorde a la teoria estandar de inversion cada inversor es caracerizado por una $ \textit{funcion de utilidad}$ (de su riqueza) $U(w)$ que refleja la preferencia al tomar el riesgo personal. El optimo $\gamma_i'$ es uno que maximiza el valor esperado de $U(w)$.\\
+\quad Diferentes modeos pueden ser usado para esto, por ejemplo, maximizar una función de utilidad de von Neumann-Morgenstern con una adversion constante de riqego del tipo
+\begin{equation}
+U(w)= \frac{w^{1-\alpha}}{1-\alpha}
+\end{equation}
+donde $\alpha$ es el parametro de adversion de riesgo, o la función de utilidad logaritmica
+\begin{equation}
+U(w)=\log{(w)}
+\end{equation}
+Como no conocen el precio de la acción futura $S'$, el inversor estima la siguiente distribución de retorno y encontrar una mezcla de acciones y de bonos que maximize su utilidad esperada $E[U]$. En la práctica, para algún precio hipotetico $S^{h}$, cadainversor encuentra la proporcion optima hipotetica $\gamma_i^{h}(S^h)$ que maximiza su utilidad esperada evaludad en
+\begin{equation}
+w^h(S^h)=(1-\gamma^h_i)w_i'(1+r) +\gamma^h_i(1+x(S^h))
+\end{equation}
+donde $x'(S^h)=(S^h-S')/S'$ y $S'$ es estimada de alguna manera. POr ejemplo en [\footnote{Levy, M.,Levy, H., Solomon, S., \textit{Microscopic simulation of financial markets: From investor behaviour to market phenomena, Academic Press, (2000)}}], la expectativa de los inversores para  $x'$ son basados en la extrapolación de los valores pasados.\\
+\quad Note que, si asumimos que todos los inversores tienen la misma adversión al riesgo $\alpha$, entonce ellos tendrán la misma proporción de inversión en acciones es indiferente de su riqueza, así $\gamma^{h}_i(S^{h})=\gamma^{h}(S^{h})$.\\
+\quad Una vez cada inversor decide sobre su proporcion hipotetica optima de riqueza $\gamma^{h}$ que desea invertir en acciones, uno puedo derivar el numero de acciones $n^{h}_i(S^{h})$ que desea mantener correspondiente a cada precio de acciones hipotetico $S^{h}$. Desde el numero total de acciones en el mercado $n$, es fijo hay un valor valor particular del precio $S'$ para que la suma de $n^{h}_i(S^h)$ igual a $n$. Este valor $S'$ es el nuevo precio de equilibrio del mercado y la opcion optima de la riqueza es $\gamma'_i=\gamma^{h}_i(S')$.\\
+\quad Más precisamente, siguiendo [1], cada agente formula una \textit{ curva demanda}
+\begin{equation}
+n^h_i=n^h_i(S^h)=\frac{\gamma^h(S^h)w^h_i(S^h)}{S^h}
+\end{equation}  
+caracterizando el numero deseado de acciones como una funcion del precio del mercado hipotetico $S^h$. Este numero de accciones es una funcion monotamente decreciente del precio hipotetico $S^h$. Como el numero de acciones
+\begin{equation}
+n= \sum^{N}_{i=1}n_i
+\end{equation}
+es preservado, el nuevo precio del mercado en el siguiente nivel temporal es dado por el así llamada \textit{condición de mercado de conpensación}. Así el nuepor precio $S'$ es el único precio en que la demanda total es igual a la oferta
+\begin{equation}
+\sum^{N}_{i=1}n^h_i(S')=n
+\end{equation} 
+Este será el valor $w'$ en Ec.(\ref{ec1}) y el modeo puede estar avanzando al siguiente nivel temporal. Hacer el modelo más realista, tipicamente una fuente de ruido estocastico, que caracteriza todos los factores causando al inversor desviar de su portafolio personal, es introducido en la proporción de inversión $\gamma_i$ y en el retorno de la acción $x'$ 
+\section*{Modelamiento Cinético}
+\quad Definimos $f = f(w,t)$, $w\in R_{+},t >0$ la distribución de riqueza $w$ que representa la probabilidad para un agente que tiene una riqueza $w$. Asumimos que en el tiempo $t$ el porcentaje de riqueza invertida es de la forma $\gamma{\varepsilon}=\mu(S) \varepsilon$, donde $\varepsilon$ es una variable aleatorio in $[-z,z]$, y $z=min\left\{-\mu(S),1-\mu(S)\right\}$ is distribuido acorde a alguna densidad de probabilidad $\Phi(\mu(S),\varepsilon)$ con promedio cero y varianza $letra^{2}$. Esta densidad de probabilidad caracteriza la etrategia de un agete alrededor de la elección óptima $\mu(S)$. Asumimos $\Phi$ es independiente de la riqueza del agente. Aqui, la curva de demanda optima $\mu(\cdot)$ es asumido a ser una dada función que no aumenta monoticamente del precio $\S\leq 0$ tal que $0< \mu(0)<1$.\\
+\quad Note que dado $f(w,t)$ el actual precio del mercado $S$ satisface la relación oferta demanda
+\begin{equation}
+S=\frac{1}{n}E[\gamma w]
+\end{equation} 
+donde $E[X]$ denota la esectativa matematica de la variabe aleatoria $X$ y $f(w,t)$ ha sido normalizado
+\begin{equation}
+\int^{\infty}_{0}f(w,t)dw = 1
+\end{equation}
+Más precisamente, de $\gamma$ y $w$ son independientes, en el tiempo $t$, El precio $S(t)$ satisface 
+\begin{equation}
+S(t)=\frac{1}{n}E[\gamma] E[w]=\frac{1}{n}\mu(S(t))(w)(t)\label{ec12}
+\end{equation} 
+con \begin{equation}
+w(t){:=} E[w] = \int^{infty}_{0}f(w,t)wdw
+\end{equation}
+sera la riqueza promedio y por construcción,
+\begin{equation}
+\mu(S)=\int\Phi(\mu(S),\varepsilon)\varepsilon d\varepsilon
+\end{equation}
+\quad En la siguiente ronda en el mercado, la nueva riqueza del inversor dependerá son el precio futuro $S'$ y el porcentaje $\gamma$ de riqueza invertida acorde a
+\begin{equation}
+w'(S,\gamma,n)=(1-\gamma)w(1+r)+\gamma w(1+x(S',n)),
+\end{equation}
+donde el retorno esperado del activo es dado por
+\begin{equation}
+x(S',n)=\frac{S'-S+D+n}{S}\label{ec15}
+\end{equation}
+En la relacion de arriba, $D\leq 0$ representa un pago de dividendo constante por la compañia y $n$ es una variable aleatoria distribuida acorde a $\Theta(n)$ con promedio cero y varianza $\sigma^2$, que toma en cuenta fluctuaciones debido a la incertidumbre de precios y dividendos. Asumimos que $n$ toma valores en $[-d,d]$ con $0<d\leq S'+D $ tal que $w'\leq 0$ y así riquezas negativas no son permitidas en el modelo. Note que Ec.(\ref{ec15}) requiere estimar el precio futuro $S'$. que es desconocido.
+La dinámica es entonces determinado por la nueva fracción del agente de riqueza invertida en acciones, $\gamma'(\varepsilon')=\mu(S')+\varepsilon'$, donde $\varepsilon'$ es una variable aleatoria en $[-z',z']$ y 
+$z'= \min \left\{ \mu(S'),1-\mu(S')\right\}$ e distribuido acorde a $\Phi(\mu(S'),\varepsilon')$. Tenemos la relación oferta - demanda
+\begin{equation}
+S'=\frac{1}{n}E[\gamma'w']
+\end{equation}
+que nos permite escribir para el recio futuro
+\begin{equation}
+S'= \frac{1}{n} E[\gamma']E[w']= \frac{1}{n}\mu(S')E[w']\label{ec17}
+\end{equation}
+ahora
+\begin{equation}
+w'(S',\gamma,n)= w(1+r) + \gamma w (x(S',n)-r)
+\end{equation}
+así
+\begin{eqnarray}
+E[w']= E[w](1+r)+E[\gamma w](E[x(S',n)]-r) \\
+=w(t)(1+r)+\mu (S)w(t)\left(\frac{ S'-S+D}{S}-r\right)
+\end{eqnarray}
+Esto da la identidad
+\begin{equation}
+S'=\frac{1}{n} \mu (S')w(t)\left[(1+r)+\mu(S)\left(\frac{S'-S+D}{S}-r\right) \right]
+\end{equation}
+Usando Ec.\ref{ec12} podemos eliminar la dependenciasobre la riqueza promedio y escribir
+\begin{eqnarray}
+S'=\frac{\mu(S')}{\mu(S)}\left[(1-\mu(S))S(1+r)+\mu(S)(S'+D) \right] \nonumber \\
+= \frac{(1-\mu(S))\mu(S')}{(1-\mu(S'))\mu(S)}(1+r)S+\frac{\mu(S')}{1-\mu(S')}D\label{ec22}
+\end{eqnarray}
+\subsection*{Observación 3.1}
+La ecuacion para el futuro precio deseado algunas observaciones 
+\begin{itemize}
+\item Ec.\ref{ec22} determina implicitamente el futuro valor del precio de la accion. Ponemos
+$$
+g(S)=\frac{1-\mu(S)}{\mu(S)}S
+$$
+Entonces el precio futuro es dado por la ecuación
+$$
+g(S') = g(S)(1+r)+D
+$$
+para un dado $S$. Note que
+$$
+\frac{dg(S)}{dS}=-\frac{d\mu(S)}{dS}\frac{S}{\mu(S)^2}+\frac{1-\mu(S)}{\mu(S)}>0
+$$
+así la funciónes estrictamente creciente con respecto a $S$. Esto garantiza la existencia de una única solución
+\begin{equation}
+S'=g^{-1}(g(S)(1+r)+D)>0
+\end{equation}
+Por lo tanto, si $r=0$ y $D=0$, la única solución es $S'=S$ y el precio se mantiene inalterado en el tiempo.\\
+Para el retorno promedio de accione, tenemos
+\begin{equation}
+x(S')-r=\frac{(\mu(S')-\mu(S))(1+r)}{(1-\mu(S'))\mu(S)}+\frac{\mu(S')D}{S(1-\mu(S'))} \label{ec24}
+\end{equation}
+donde
+\begin{equation}
+X(S')= E[x(S',n)]=\frac{S'-S+D}{S}
+\end{equation}
+Ahora el lado derecho de Ec.(\ref{ec24}) tiene signo no constante de $\mu(S')\leq \mu(S) $. En partícular, el promedio de retornos del mercado es arriba es la taza de bonos $r$ solo si la taza (negativa) de variación de los inversores es arriba de un cierto umbral
+$$
+\frac{\mu(S')-\mu(S)}{\mu(S)\mu(S')}S\leq -\frac{D}{(1+r)}
+$$
+\item En el caso de inversión contante $\mu(\dot)=C$, con $C\in (0,1)$ constante, entonces tenemos $g(S)=(1-C)S/C$ y
+$$
+S'=(1+r)S+\frac{C}{1+C}D,
+$$
+que corresponde a una dinamica creciente de los precios en el interes $r$. Como una consecuencia, el promedio retorno de accione es siempre mas largo que entonces el retorno constante de los bonos
+$$
+x(S')-r=\frac{D}{S(1-C)}\geq 0
+$$
+\quad Por metodos estandares de teoria cinetica [2], la dinámica microscopica de agentes origina la siguiente ecuación cinética lineal para a evolución de la distribución de riqueza
+\begin{equation}
+\frac{\partial f(w,t)}{\partial t} = \int^{d}_{-d}\int^{z}_{-z} \left(\beta(w\rightarrow w) \frac{1}{j(\varepsilon,n,t)}f('w,t)-\beta(w\rightarrow w')f(w,t)\right)d\varepsilon dn
+\end{equation}
+La ecuación de arriba toma en cuenta todas las posibles variaciones que puede ocurrir a la distribución de una dada riqueza $w$. La primera parte de la integral del ado derecho toma en cuenta todas as posibles ganancias de la riqueza de prueba $w$ que viene de la riqueza $'w$ antes de la transacción. La función $\beta('w\rightarrow w)$ da la probabilidad por unidad de tiempo de este proceso.\\
+\quad Así $'w$ es obtenido simplemente por la inversión de la dinámica dada
+\begin{equation}
+'w=\frac{w}{j(\varepsilon,n,t)}, \quad \quad j(\varepsilon,n,t)=1+r+\gamma(\varepsilon)(x(S',n)-r),
+\end{equation} 
+donde el valor $S'$ es dado como el único  punto fijo de Ec.(\ref{ec17}).\\
+\quad La presencia del término $j$ en la integral es necesario en orden de prevenir el nunmero total de agentes 
+\begin{equation}
+\frac{d}{dt} \int^{\infty}_{0} f(w,t)dw=0
+\end{equation}
+La segunda parte de la integral sobre el lado derecho de la Ec.(\ref{26}) es un término negativo que toma en cuenta todas as posibes perdidas de riqueza $w$ como una consecuencia de la dinámica directa Ec.(\ref{ec14}), la taza de este proceso ahora será $\beta(w\rightarrow w')$. En nuestro caso, el kernel $\beta$ toma la forma
+\begin{equation}
+\beta(w\rightarrow w') = \Phi(\mu(S),\varepsilon)\Theta(n)
+\end{equation}
+La función de distribución $\Theta (\mu(S),\varepsilon)$, junto con la función $\mu(\dot)$, caracterizan el comportamiento de los agentes en el mercado (más precisamente, ellos caracterizan la manera de invertir de los agentes invierten su riqueza como una función del precio actua del mercado).
+\subsection*{Observación 3.2} En la derivación de la ecuación cinética, asumimos por simplicidad que la actual curva de demanda $\mu(\dot)$ que da la proporción óptima de inversión es una función de solo del pre3cio. En realidad, la curva de demanda debería cambiar en cada interación y debería asi solo depender del tiempo. En el caso general donde cada agente tiene una estrategia individual que depende de la riqueza, uno debería considerar la dsitribución $f(\gamma,w,t)$ de agentes teniendo una fracción $\gamma$ de su riqueza $w$ invertido en acciones
+\end{itemize}
+\section*{Propiedades de la ecuación cinética}
+Comenzaremos nuestro analisis introduciendo algunas notaciones. Sea $M_0$ el espacio de toda la probabilidad medida en $R_{+}$  y por 
+\begin{equation}
+M_p=\left\{\Psi \in M_0:\int_{R_{+}}|\vartheta|^{P}\Psi(\vartheta)d\vartheta<+\infty,p\geq 0 \right\},
+\end{equation}
+medimos el espacio de toda la probabilidad de Borel de momento finito de $p$, equipada con la topología de a convergencia debil de la medida.\\
+\quad Sea $F_{p}(R_{+}),p>1$ la clase de todas las funciones reales sobre $R_{+}$ tal que $m+\delta=p$, y $g^{(m)}$ denota la m escima derivada de $g$.\\
+\quad Claramente la densidad de probabilidad simetrica $\Theta$ que caracteriza el retorno de acciones que pertenece a $M_p$ para todo $p>0$ de
+$$
+\int^{d}_{-d}|n|^{p}\Theta(n)dn \leq |d|^{p}.
+$$ 
+Además, para simplificar calculos, asumimos que esta densidad es obtenida de una variable aleatoria dada $Y$ con promedio cero y varianza unitaria. Así $\Theta$ de varianza $\sigma^2$ es la densidad de $\sigma Y$. POr esta suposición, podemos facilmente obtener la dependecia sobre $\sigma$ de los momento de $\Theta$. De hecho, para algún $p>2$,
+$$
+\int^{d}_{-d}|n|^{p}\Theta(n)dn=E(|\sigma Y|^P)=\sigma^{p}E(|Y|^{p}).
+$$ 
+\quad Note que la Ec.(\ref{25}) en forma debil toma la forma mas simple
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0} f(w,t)\phi(w)dw = \int^{\infty}_{0}\int^{D}_{-D}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(\phi (w')-\phi(w))d\varepsilon dn dw \label{31}
+\end{equation}
+Para uns solución debil del problema valor inicial para la Ec.(\ref{ec26}) corresponde a la densidad de probabilidad inicial $f_0(w)\in M_{p}, p >1$, nos referiremos a alaguna densidad de probabilidad $f\in C^{1}(R_{+})$, y tal que para todo $\phi \in F_{p}(R_{+})$,
+\begin{equation}
+\lim_{t\rightarrow 0}\int^{\infty}_{0}f(w,t)\phi(w)dw=\int^{\infty}_{0}f_0(w)\phi(w)dw \label{32}
+\end{equation}
+La forma Ec.(\ref{ec31}) es facil de resolver, y es el punto de comienzo para estudiar la evolución de cantidades macroscopicas (momentos). La existencia de una solución débil para Ec.(\ref{25}) puede ser visto facilmente usando los mismos metodos disponibles para la ecuacion lineal de Boltzmann [28].\\
+\quad De Ec.(\ref{ec31}) seguimos la conversavación de nuemro total de inversores si $\phi(w)=1$. La elección $\phi(w)=w$ es de interés partícular dado la evolución temporal de la riqueza promedio que caracteriza el comportamiento de precio. De hecho, la riqueza promedio no es conservada en el modelo que tenemos
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0}f(w,t)wdw=\left(r+\mu(S)\left(\frac{S'-S+D}{S}-r\right)\right)\int^{\infty}_{0}f(w,t)wdw\label{ec33}
+\end{equation}
+Note que desde el signo del lado derecho es no negativo, la riqueza promedio no decrece en el tiempo. En partícular, podemos re escribir la ecuación como
+\begin{equation}
+\frac{d}{dt}w(t)=((1-\mu(S))r+ \mu(S)x(S'))w(t) \label{ec34}
+\end{equation}
+De esto obtenemos la ecuacion del precio
+\begin{equation}
+\frac{d}{dt}S(t)=\frac{\mu(S(t))}{\mu(S(t))-\mu(S(t))S(t)}((1-\mu(S(t)))r+\mu(S(t))x(S'(t)))S(t).
+\end{equation}
+donde $S'$ es dado por Ec.(\ref{ec22}) y
+\begin{equation}
+\dot{\mu}(S)=\frac{d\mu(S)}{dS}\geq 0. 
+\end{equation}
+Ahora de Ec.(\ref{ec24}) se sigue por la monotonicidad de $\mu$ que
+$$
+x(S')\leq M:= r+\frac{D}{S(0)(1-\mu(S(0)))}
+$$
+usando Ec.(\ref{ec34}) tenemos los limites
+\begin{equation}
+w(t)\leq w(0)exp(Mt)\label{ec36}
+\end{equation}
+De Ec.(\ref{12}) obtenemos inmediatamente
+$$
+\frac{S(t)}{\mu(S(t))}\leq \frac{S(0)}{\mu(S(0))}exp(Mt)
+$$
+que da
+\begin{equation}
+S(t)\leq S(0)exp(Mt) \label{ec37}
+\end{equation}
+\subsection*{Observación 4.1}Para una constante $\mu(\cdot)=C,C\in (0,1)$ tenemos la expresión explicita para el crecimiento de la riqueza (y consecuentemente para el precio)
+\begin{equation}
+w(t)=w(0)exp(rt)-(1-exp(rt))\frac{nD}{1-C}\label{ec38}
+\end{equation}
+\quad Analogos bordes para Ec.(\ref{36}) para momentos de alto orden puede ser obtenido en una manera similar. Vamos a considerar el caso de momentos de orden $p\geq2$, que necesitaremos en la secuencia. TOmando $\phi(w)=w^p$, tenemos
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0}w^{p}f(w,t)dw=\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(w'^{p}-w^{p})d\varepsilon dn dw \label{ec39}
+\end{equation}
+Además, podemos escribir
+$$
+w'^{p}=w^{p}+pw^{p-1}(w'-w)+\frac{1}{2}p(p-1)w^{p-2}(w'-w)^{2}
+$$
+donde, para algún $0\leq \theta \leq 1$,
+$$
+w=\theta w' +(1+\theta)w
+$$
+Aquí,
+$$
+\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(w'^{p}-w^{p})d\varepsilon dn dw
+$$
+\begin{eqnarray}
+=\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)(pw{p-1}(w'-w)+\frac{1}{2}p(p-1)w^{p-2}(w'-w)^{2})d\varepsilon dn dw \nonumber \\
+=p((1-\mu(S))r+\mu(S)x(S'))\int^{\infty}_{0}w^{p}f(w,t)dw+\frac{1}{2}p(p-1)
+\end{eqnarray}
+$$
+\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z}\Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)w^{p-2}w^2((1-\gamma)r+\gamma x(S',n))^{2}d\varepsilon dn dw
+$$
+De
+$$
+w^{p-2}=w^{p-2}(1+\theta(1-\gamma)r+\gamma x (S',n)))^{p-2}\leq w^{p-2}(1+r+|x(S',n)|)^{p-2}
+$$
+$$
+\leq C_pw^{p-2}(1+r^{p-2}+|x(S',n)|^{p-2})
+$$
+y
+$$
+((1-\gamma)r+\gamma x(S',n)))^2\leq 2(r^2+x(S',n)^2),
+$$
+tenemos
+$$
+\int^{\infty}_{0}\int^{d}_{-d}\int^{z}_{-z} \Phi(\mu(S),\varepsilon)\Theta(n)f(w,t)w^{p-2}w^{2}((1+\gamma)r+\gamma x(S',n))^2 d\varepsilon dn dw
+$$
+$$
+\leq 2C_p\int^{\infty}_{0}\int^{d}_{-d}\Theta(n)f(w,t)w^{p}(1+r^{p-2}+|x(S',n)|^{p-2})(r^{2}+x(S',n)^2)dn dw
+$$
+de
+\begin{equation}
+\int^{d}_{-d}\Theta (n)|x(S',n)|^pdn\leq \frac{c_p}{S^{p}}((S'-S)^p+D^p+\sigma^pE(|Y|^p)),
+\end{equation}
+finalmente obtenemos los bordes
+\begin{equation}
+\frac{d}{dt}\int^{\infty}_{0}w^pf(w,t)dw \leq A_p(S)\int^{\infty}_{0}w^{p}f(w,t)dw,
+\end{equation}
+donde 
+$$
+A_p(S)=p((1-\mu(S))r+\mu(S)x(S'))
+$$
+$$
++p(p-1)C_p\left[r^p+(1+r^{p-2})\left(1+\frac{C_2}{S^{2}}((S'-S)^2+D^2+\sigma^2E(|Y|^2)) \right) +r^2\left(1+\frac{C_p-2}{S^{p-2}}((S'-S)^{p-2}+D^{p-2}+\sigma^{p-2}E(|Y|^{p-2})) \right)
++ \left(\frac{C_p}{S^{p}}((S'-S)^p+D^{p}+\sigma^{p}E(|Y|^p))\right) \right]
+$$
+y $C_p,c_p,c_{p-2}$ y $c_2$ son constantes sutibles.\\
+\quad Podemos resumir nuestros resultados en lo que sigue
+\subsection*{Teorema 4.1}
+Sea la desnsiada de probabilidad $f_0\in M_p$, donde $p=2+\delta$ para algún $\delta > 0$. Entonces la riqueza promedio incrementa exponencialmente con el tiempo siguiendo Ec.(\ref{ec36}). Como una consecuencia, si $\mu$ es una función que no incrementa de S
+, el precio no crece mas que exponencialmente como en Ec.(\ref{ec37}). Similarmente, momentos orden altos no incrementan más que exponencialemnte y tenemos el borde Ec.(\ref{ec41})
+\section*{Solución auto-similar y Asimtotica Fokker-Planck}
+\newpage
+\begin{center}
+\section*{Essentials of Econophysics Modelling\citep{slanina2013}}
+\end{center}
+\section*{Basic Agent Models}
+\subsection*{Levy-Levy-Solomon}
+\subsubsection*{Inversores optimo}
+\quad Suponga que tiene algun capital y ahora quiere invertirlo. Puedes compras un activo menos riesgoso, es decir bonos gubernamentales, o algún sactivo, que pimere mas ganancia pero tu puedes también perder mucho cuando el precio del mercado cae inesperadamente. Tu estrategia será dividir tú capital e invertir solo una fracción $f\in [0,1]$ en activos riegosos , mientra que el resto seguirá guardados en bonos. Ver como la riqueza del inversor $W_t$ evoluciona con las fluctuaciones del precio del mercado, se asume el precio $Z_t$ realiza una caminata aleatoria geometrica en el tiempo discreto $t$ , es decir el precio del siguiente precio será $Z_{t+1}= (1+\eta_t)Z_t$ donde $\eta_t > -1$ para todos los tiempos $t$ son variables aleatorias que son independiente y cuya distribucion de porbabilidad no depende del tiempo. Por lo tanto, en el siguiente tempo la riqueza es 
+\begin{equation}
+W_{t+1} = (1+f\eta_t)W_t
+\end{equation}
+Por razones proveniente de la teoría de información, Kelly usa la función de utilidad logaritmica. El inversor quiere conocer que fracción $f$ debería mantener in acciones en orden de maximizar la ganancia de la utilidad en el largo plazo $t\rightarrow \infty$. La tarea e spor lo tanto reducirdo a encontrar el máximo de la expresión
+\begin{equation}
+L(f) = \left< \ln (1+f\eta_t)\right>
+\end{equation}
+donde el parentesis de angulo denota el promedio sobre el factor aleatorio $\eta_t$. Por que $L''(f)= -\left< [\eta_t/(1+f\eta_t)]^2\right><0$, el máximo puede estar en el intervalo $(0,1)$ o el sus bordes. La fluctuaciones en $\eta_t$ compite con la tendencia. SI $\left<\eta_t\right>>0$ la riqueza crece nominalmente, pero puede decrecer efectivamente ocasionado por el valor bajo del factor aleatorio $\eta_t$. Es importante notar que la sensibilidad del máximo de $L(f)$ con respecto al valor promedio $\left<\eta_t\right>$. Un pequeño cambio puede traer la locación del máximo de $f=0$ a $f=1$ o viceversa , y sólo en un estrecho rango de parámetros del ruido $\eta_t$ es el máximo encontrado dentro del intervalo $(0,1)$.
+\subsubsection*{Optimizadores artificiales}
+\quad En el modelo los agentes simulados actuan a optimizar acorde a Kelly. La desviación del esquema básico de Kelly es usado un amplio rango de funciones de utilidad en order a permitir al agente diferir en su preferencia de inversión. Especialmente, asumimos la forma de ley de potencia
+\begin{equation}
+U(w)= \frac{w^{1-\nu}}{1-\nu}
+\end{equation}
+y completa las postulaciones especificadas que $\nu = 1$ implica $U(w)=\ln w$. Así tenemos un amplio conjunto de funciones de utilidad a nuestra disposición. La cantidad $\nu$ mide la adversión al riesgo del agente. De hecho, los valores grandes de $\nu$, los agentes más pobres sienten las flunctuaciones en su riquezas y menos las fluctuaciones son menos percibidas por los agentes ricos.\\
+\quad El estado de $i^{th}$ de los $N$ agentes en el tiempo $t$ es determinado por su riqueza $W_{it}$ y por la fracción $F_{it}$ de la riqueza guardada en los activos riesgosos. El precio del mercado en el tiempo $t$ es $Z_{t}$, asi el agente $i$ dueño de $S_{it}= F_{it}W_{it}/Z_t$ acciones- El número total de acciones
+\begin{equation}
+S=\sum_{i=1}^{N} \frac{F_{it}W_{it}}{Z_t}
+\end{equation} 
+es conservado, que juega una regla decisiva en el calculo del cambio de los precios en el precio del activo.\\
+\quad La riqueza del agente evoluciona a cambias el precio del activo y gracias al dividendo $d$ distribuido entre lo accionistas. Suponga la transición en el tiempo $t+1$ actuan en un precio hipotetico $z_h$, que será determinado en la negociación acorde a la demanda y la oferta. Entonces la nueva, hipotetica todavía, riqueza del agente $i$ es
+\begin{equation}
+w_{hi} = W_{it}\left[1+F_{it}\frac{z_h-Z_t+d}{Z_t}\right]
+\end{equation}  
+La transación ocurre porque los agentes quieren actualizar su fracción de inversión $F_{it}$ así que su utilidad esperada es maximizada. Para que los agentes tengan que adivinar la probabilidad de los movimientos futuros solo basados en sus experiencias previas. La mejor cosa qeu ellos pueden hacer es mirar la serie de precios y estimar el retorno futuro, incluyendo el dividendo
+\begin{equation}
+\eta_{t+1}=\frac{Z_{t+2}-Z_{t+1}+d}{Z_{t+1}}
+\end{equation}
+desde el retorno previo  en $M$ pasos previos, $\eta_{t-\tau},\tau=1,\dots,M$. En otra palabras, la memoria de los agentes es $M$ pasos largos, y para el futuro ellos predicen que alguno de los $M$ valores pasados pueden repetirse con igual probabilidad. Note que la cantidad $\eta_t$ son número no aleatorios de provistos desde fuera, como en la optimización de Kelly, pero resultan de la dinámica del modelo Levy-Levy-Solomon.\\
+\quad Denotaremos por el paréntesis angular $\left< \phi(\eta_{t+1})\right>_M=\frac{1}{M}\sum^M_{\tau=1}\phi(\eta_{t-\tau})$ el promedio sobre el rendimiento esperado, para alguna función $\phi(\eta)$. Si el agente $i$ tiene riqueza hipotetica $w_{hi}$ en el tiempo $t+1$ y en el mismo tiempo se elige ma fracción de inversión hipotética $f_{hi}$, su riqueza en el tiempo $t+2$ será $w_{hi}\left[1+f_{hi\eta_{t+1}}\right]$. La estrategia óptima debería maximizar la utilidad esperada $\left<U\left(w_{hi}\left[1+f_{hi}\eta_{t+1}\right]\right)\right>_M$ con respecto a la fracción hipotética $f_{hi}$. Ahora 
+\newpage
+
+\begin{center}
+Some New results on the Levy, Levy and Solomon microscopic stock market model\\
+E.Zschischang, T. Lux\citep{Zschischang2001}
+\end{center}
+\section*{El modelo set-up y resultados previos}
+\subsection*{Modelo estructural}
+\quad Al comienzo de cada periodo cada inversor $i$ necesita dividir su riqueza entera $W(t)$ en acciones y bonos. Su riqueza, por lo tanto, es dividida en una fracción $X(i)$ que mantiene en acciones en el tiempo $t$ y una fracción $1-X(i)$n que mantiene en bonos. Los créditos y las ventas cortas no están permitidas, $X(i)$ es limitada de 0 a 1, es decir, $0.01\leq X(i)\leq 0.99$. Adicional mente, el modelo asume que el numero de inversores, $n$, como la oferta de acciones, $N_A$ son fijas. Aparte de una función de utilidad idéntica $U(W_{t+1})$ inversores en el comienzo también tienen la misma cantidad de riqueza y el mismo numero de acciones. Heredas los bonos sin riesgos pagan una taza de interés dijo, $r$, el retorno de mercad $H_t$ varia con el tiempo y es sujeto a in certeza. Esta compuesto de dos componentes: primero, incluye ganancias o perdidas resultante de los cambios del precio del mercad ($P_t$). Segundo, accionistas reciben un dividendo pagado $D_t$ por periodo que es asumido a seguir un camino de crecimiento estocastico. Retornos de las acciones con riesgo, por lo tanto, son dados por
+\begin{equation}
+H_t=\frac{P_t-P_{t-1}+D_t}{P_t-1}
+\end{equation}
+\quad En la version basica del modelo, preferencias de los inversores son descritas por una funcion de utilidad logaritmica que es acorde con la suposicion usual de disminución marginal de utilidad de riqueza y adversion de inversores. De retornos futuros aparece en el problema de maximizacion de utilidad de inversores, su esectativa sobre el precio futuro y retornos tiene que ser considerado. En Levy, Levy y Solomon, la supoicion permanente es que inversores tienen una memoria limitada de largo $k$ periodos y esperan que el retorno observado en este intervalo ocurra en el siguiente periodo con probabilidad igual a $1/k$. Dado estas expectativas, la utilidad esperada $E[U(x(I))] $ puede ser maximizado con respecto al numero de acciones demandadas por el agente. En sus simuluaciones, Levy, Levy y Solomon consideraron uno o más grupos de inversores con span memoria identica $k$. Una vez el numero  optimo de  acciones ha sido calculado para cada grupo inversor, cada demanda de inversion individuual es calculada agregando un numero aleatorio distribuido normalmente $\varepsilon_i$ to the outcome of the maximization process. Esto deja la heterogeneidad en grupos con fluctuaciones alrededor del largo promedio de la acciones demandada. Con todas las funciones de demanda individuales dadas, el nuevo precio del mercado es calculado como el precio de equilibrio en el mercado (es decir, un precio que deja identico la demanda y la oferta).
+\subsection*{Resultados Previos}
+\newpage 
+\bibliographystyle{unsrt} 
+\bibliography{biblio_00}
+\end{document}

@@ -1,0 +1,115 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: R_info.aux
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 66 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 68 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 71 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 72 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 73 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 74 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 75 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 78 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 82 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 83 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys levy2000 and Levy2000
+---line 84 of file R_info.aux
+ : \citation{levy2000
+ :                   }
+I'm skipping whatever remains of this command
+The style file: plain.bst
+Database file #1: ref.bib
+Repeated entry---line 92 of file ref.bib
+ : @article{levy1996
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 103 of file ref.bib
+ : @article{levy1996
+ :                  ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Levy2000"
+Warning--empty booktitle in Beikirch2020
+Warning--empty journal in lovric2009
+Warning--empty journal in trimborn
+Warning--empty year in trimborn
+You've used 22 entries,
+            2118 wiz_defined-function locations,
+            635 strings with 7702 characters,
+and the built_in function-call counts, 7254 in all, are:
+= -- 696
+> -- 394
+< -- 2
++ -- 158
+- -- 132
+* -- 520
+:= -- 1241
+add.period$ -- 65
+call.type$ -- 22
+change.case$ -- 131
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 259
+empty$ -- 529
+format.name$ -- 132
+if$ -- 1472
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 22
+newline$ -- 111
+num.names$ -- 44
+pop$ -- 139
+preamble$ -- 1
+purify$ -- 110
+quote$ -- 0
+skip$ -- 184
+stack$ -- 0
+substring$ -- 390
+swap$ -- 42
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 86
+warning$ -- 4
+while$ -- 66
+width$ -- 24
+write$ -- 228
+(There were 13 error messages)
